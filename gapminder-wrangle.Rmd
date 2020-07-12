@@ -1,0 +1,40 @@
+---
+title: "gapminder-wrangle"
+author: "VernaDai"
+date: "2020/7/12"
+output: pdf_document
+---
+
+```{r setup, message = F,include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Learn 'dyplyr' using gapminder dataset
+
+```{r}
+gapminder <- read_csv('data/gapminder.csv')
+head(gapminder,10)
+```
+
+```{r}
+str(gapminder)
+```
+
+```{r}
+# subset
+filter(gapminder,lifeExp<29)
+```
+```{r}
+filter(gapminder, country == "China" & year == 2002)
+```
+```{r}
+filter(gapminder, country %in% c("Mexico","China"))
+```
+```{r}
+b1 <- filter(gapminder, country == 'Brazil', year >= 1987, year <= 2007)
+mean(b1$lifeExp)
+```
+
+
+
